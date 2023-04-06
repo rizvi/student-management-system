@@ -15,6 +15,7 @@ public interface StudentManagementSystemService {
 	Student findStudentById(Long id);
 	void deleteStudentById(Long id) throws IOException, CsvException;
 	Student updateStudentById(Student student, Long id);
+	Student updateStudentNameById(String name, Long id) throws IOException, CsvException;
 	List<Student> getStudentList();
 	Teacher saveTeacher(Teacher teacher);
 	Admin getAdminDetails(Long id);

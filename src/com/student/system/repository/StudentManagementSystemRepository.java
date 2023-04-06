@@ -18,4 +18,5 @@ public interface StudentManagementSystemRepository {
 	List<Student> getStudentList();
 	Teacher saveTeacher(Teacher teacher);
 	Admin getAdminDetails(Long id);
+	Student updateStudentNameById(String name, Long id) throws IOException, CsvException;
 }

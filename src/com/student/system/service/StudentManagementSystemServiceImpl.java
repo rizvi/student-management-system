@@ -37,6 +37,11 @@ public class StudentManagementSystemServiceImpl implements StudentManagementSyst
     }
 
     @Override
+    public Student updateStudentNameById(String name, Long id) throws IOException, CsvException {
+        return smsRepository.updateStudentNameById(name, id);
+    }
+
+    @Override
     public List<Student> getStudentList() {
         return smsRepository.getStudentList();
     }

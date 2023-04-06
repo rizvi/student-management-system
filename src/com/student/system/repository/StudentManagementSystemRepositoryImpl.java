@@ -27,7 +27,7 @@ public Student saveStudent(Student student) throws CsvRequiredFieldEmptyExceptio
 }
 	@Override
 	public Student findStudentById(Long id) {
-		return fileUtil.readCsvFile();
+		return fileUtil.getStudentById(id);
 	}
 
 	@Override
@@ -47,11 +47,20 @@ public Student saveStudent(Student student) throws CsvRequiredFieldEmptyExceptio
 
 	@Override
 	public Teacher saveTeacher(Teacher teacher) {
-		return null;
+		return FileUtil.addTeacher(teacher);
 	}
 
 	@Override
 	public Admin getAdminDetails(Long id) {
 		return null;
+	}
+
+	@Override
+	public Student updateStudentNameById(String name, Long id) throws IOException, CsvException {
+		Student student = fileUtil.getStudentById(id);
+		student.setName(name);
+		fileUtil.deleteStudent(id);
+		fileUtil.saveStudent(student);
+		return student;
 	}
 }
