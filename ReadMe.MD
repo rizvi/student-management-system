@@ -1,5 +1,7 @@
 # Student Management System
 
+Github Link: https://github.com/rizvi/student-management-system
+
 <H2>Admin Section</H2>
 
 ```
