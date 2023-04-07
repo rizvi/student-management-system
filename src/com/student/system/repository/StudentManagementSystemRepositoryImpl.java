@@ -7,19 +7,13 @@ import com.student.system.model.Admin;
 import com.student.system.model.Student;
 import com.student.system.model.Teacher;
 import com.student.system.util.FileUtil;
-import com.student.system.util.OpenCSVWriter;
 
 import java.io.IOException;
 import java.util.List;
 
 public class StudentManagementSystemRepositoryImpl implements StudentManagementSystemRepository {
-	OpenCSVWriter csvWriter = new OpenCSVWriter();
 	FileUtil fileUtil = new FileUtil();
-/*	@Override
-	public Student saveStudent(Student student) throws CsvRequiredFieldEmptyException, IOException, CsvDataTypeMismatchException {
-		csvWriter.saveStudent(student);
-		return student;
-	}*/
+
 @Override
 public Student saveStudent(Student student) throws CsvRequiredFieldEmptyException, IOException, CsvDataTypeMismatchException {
 	fileUtil.saveStudent(student);
@@ -42,7 +36,7 @@ public Student saveStudent(Student student) throws CsvRequiredFieldEmptyExceptio
 
 	@Override
 	public List<Student> getStudentList() {
-		return null;
+		return fileUtil.getStudentList();
 	}
 
 	@Override
