@@ -65,7 +65,7 @@ public class FileUtil {
 		}
 	}
 
-	public static Student readCsvFile() {
+	public static List<Student> getStudentList() {
 		BufferedReader fileReader = null;
 		//Create a new list of student to be filled by CSV file data
 		List students = new ArrayList();
@@ -108,7 +108,7 @@ public class FileUtil {
 				e.printStackTrace();
 			}
 		}
-		return (Student) students.get(0);
+		return students;
 	}
 
 	public static int getRowNumberOfStudentFile(Long id) {
@@ -194,6 +194,7 @@ public class FileUtil {
 		writer.writeAll(allElements);
 		writer.close();
 	}
+
 	public Student getStudentById(Long id) {
 		BufferedReader fileReader = null;
 		Student student = new Student();
@@ -263,7 +264,7 @@ public class FileUtil {
 			e.printStackTrace();
 		} finally {
 			try {
-//				fileWriter.flush();
+				fileWriter.flush();
 				fileWriter.close();
 			} catch (IOException e) {
 				System.out.println("Error while flushing/closing fileWriter !!!");
